@@ -546,12 +546,11 @@ fi;
 
 KERNEL_STRING="$(file_getprop anykernel.sh kernel.string)";
 ui_print "$KERNEL_STRING";
-if [ -f version ]; then
-  ui_print " ";
-  ui_printfile version;
-  ui_print " ";
-fi;
+KERNEL_VERSION="$(file_getprop anykernel.sh version.name)";
+ui_print "$KERNEL_VERSION";
+ui_print " " "an aftermarket kernel by itsHanibee @ Telegram & xda-developers" " ";
 ui_print " " "AnyKernel3 by osm0sis @ xda-developers" " ";
+
 grep -oE 'AK_BASE.*' META-INF/com/google/android/updater-script >&2;
 ui_print " ";
 
@@ -562,7 +561,7 @@ do_versioncheck;
 do_levelcheck;
 do_vendorlevelcheck;
 
-ui_print "Installing...";
+ui_print "replacing kernel image (and dtbo too if included in the zip...)";
 # hack to maintain support for anykernel.sh files that weren't updated correctly along with the AK core
 CORE=$(grep -oE 'ak.*core.sh' anykernel.sh);
 [ -f tools/$CORE ] || ln -s $AKHOME/tools/ak*-core.sh $AKHOME/tools/$CORE;
@@ -581,6 +580,6 @@ if [ "$(file_getprop anykernel.sh do.cleanup)" == 1 ]; then
   cleanup;
 fi;
 
-ui_print " " "Done!";
+ui_print " " "installation finished, you can reboot to system now";
 export PATH="$OLD_PATH";
 unset OLD_PATH OUTFD ZIPFILE;
