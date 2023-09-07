@@ -5,7 +5,7 @@
 # global properties
 properties() { '
 kernel.string=hanikrnl.
-version.name=MultithreadedLove
+version.name=ClimacticSunset
 do.devicecheck=1
 do.modules=0
 do.systemless=1
@@ -27,7 +27,7 @@ supported.vendorpatchlevels=
 # boot shell variables
 block=/dev/block/bootdevice/by-name/boot;
 is_slot_device=0;
-ramdisk_compression=lzo;
+ramdisk_compression=auto;
 patch_vbmeta_flag=auto;
 
 # import functions/variables and setup patching - see for reference (DO NOT REMOVE)
