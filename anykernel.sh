@@ -5,7 +5,7 @@
 # global properties
 properties() { '
 kernel.string=hanikrnl.
-version.name=ClimacticSunset
+version.name=Internal
 do.devicecheck=1
 do.modules=0
 do.systemless=1
